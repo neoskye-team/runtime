@@ -1,5 +1,12 @@
 # Neoskye
-you want these libraries on linux:
+An opinionated, open-source, very cool game engine.
+
+## Building
+
+### Linux
+
+You'll need these libraries (+ their development headers) to build [SFML](https://www.sfml-dev.org/)
+
 - freetype
 - x11
 - xrandr
