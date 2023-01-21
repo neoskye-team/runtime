@@ -8,6 +8,8 @@ add_subdirectory(lib) # build extendal libraries
 add_library(neoskye
     src/Neoskye.cpp
     src/EngineOptions.cpp
+    src/Entity.cpp
+    src/View.cpp 
 )
 target_link_libraries(neoskye sfml-window sfml-audio)
 target_include_directories(neoskye PUBLIC src)
