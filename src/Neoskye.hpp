@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SFML/Window/Event.hpp"
+#include "EngineOptions.hpp"
 #include "util/Types.hpp"
 #include <SFML/Window.hpp>
 
@@ -8,7 +8,7 @@ namespace neoskye {
 
 class Neoskye {
   public:
-    Neoskye();
+    Neoskye(EngineOptions& opts);
     u16 Run();
     bool HandleEvent(sf::Event& ev);
 
