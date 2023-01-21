@@ -11,7 +11,10 @@ add_library(neoskye
 )
 target_link_libraries(neoskye sfml-window sfml-audio)
 target_include_directories(neoskye PUBLIC src)
+target_compile_options(neoskye PRIVATE "-Wall")
+target_compile_options(neoskye PRIVATE "-Wextra")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
-    target_compile_options(neoskye PRIVATE "-fsanitize=address,undefined")
+    target_compile_options(neoskye PRIVATE -fsanitize=address)
+    target_link_options(neoskye PRIVATE -fsanitize=address)
 endif()

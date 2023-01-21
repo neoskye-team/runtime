@@ -16,7 +16,8 @@ EngineOptions::EngineOptions() {}
 
 EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char** argv) {
     EngineOptions opts;
-    for (int i = 0; i < argc; i++) {
+    // i = 1 so we skip the first element which is "somefolder/TagsMod"
+    for (int i = 1; i < argc; i++) {
         const auto item = argv[i];
         bool isFlag = contains(flagOpts, item);
         bool isSwitch = contains(switchOpts, item);
@@ -40,7 +41,7 @@ EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char*
     return opts;
 }
 
-inline std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string key) {
+std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string& key) {
     std::optional<usize> retVal;
     if (this->flags.count(key) == 0) {
         return retVal;
@@ -50,7 +51,7 @@ inline std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string key
     return retVal;
 }
 
-inline std::optional<isize> EngineOptions::GetSignedFlag(const std::string key) {
+std::optional<isize> EngineOptions::GetSignedFlag(const std::string& key) {
     std::optional<usize> retVal;
     if (this->flags.count(key) == 0) {
         return retVal;
@@ -60,7 +61,7 @@ inline std::optional<isize> EngineOptions::GetSignedFlag(const std::string key) 
     return retVal;
 }
 
-inline std::optional<std::string> EngineOptions::GetStringFlag(const std::string key) {
+std::optional<std::string> EngineOptions::GetStringFlag(const std::string& key) {
     std::optional<std::string> retVal;
     if (this->flags.count(key) == 0)
         return retVal;
@@ -68,5 +69,17 @@ inline std::optional<std::string> EngineOptions::GetStringFlag(const std::string
     retVal = std::make_optional(thingy);
     return retVal;
 }
+
+void EngineOptions::InsertFlag(const std::string& name, const std::string& value) { this->flags[name] = value; }
+
+void EngineOptions::InsertFlagIfItDoesntExist(const std::string& name, const std::string& value) {
+    if (this->flags.count(name) != 0)
+        return;
+    this->flags[name] = value;
+}
+
+void EngineOptions::DisableSwitch(const std::string& name) { this->switches[name] = false; }
+
+void EngineOptions::EnableSwitch(const std::string& name) { this->switches[name] = true; }
 
 } // namespace neoskye
