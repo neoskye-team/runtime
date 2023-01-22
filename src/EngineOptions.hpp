@@ -14,9 +14,9 @@ class EngineOptions {
     static EngineOptions GenerateOptionsFromArgv(const int argc, const char** argv);
 
     // flag related functions
-    std::optional<usize> GetUnsignedFlag(const std::string& key);
-    std::optional<isize> GetSignedFlag(const std::string& key);
-    std::optional<std::string> GetStringFlag(const std::string& key);
+    std::optional<usize> GetUnsignedFlag(const std::string& key) const;
+    std::optional<isize> GetSignedFlag(const std::string& key) const;
+    std::optional<std::string> GetStringFlag(const std::string& key) const;
     void InsertFlag(const std::string& name, const std::string& value);
     void InsertFlagIfItDoesntExist(const std::string& name, const std::string& value);
 

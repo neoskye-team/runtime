@@ -3,7 +3,7 @@
 
 namespace neoskye {
 
-Entity::Entity() { std::cout << "neoskye::Entity ctor"; }
+Entity::Entity() {}
 
 void Entity::Update() {}
 void Entity::Draw() {}

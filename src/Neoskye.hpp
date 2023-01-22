@@ -3,6 +3,7 @@
 #include "EngineOptions.hpp"
 #include "View.hpp"
 #include "util/Types.hpp"
+#include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <memory>
 
@@ -10,9 +11,9 @@ namespace neoskye {
 
 class Neoskye {
   public:
-    explicit Neoskye(EngineOptions& opts);
+    explicit Neoskye(const EngineOptions& opts);
     u16 Run();
-    bool HandleEvent(sf::Event& ev);
+    bool HandleEvent(const sf::Event& ev);
 
     // implement here so template specialization works
     template <typename V> void SwitchView() {
@@ -21,7 +22,7 @@ class Neoskye {
     }
 
   private:
-    sf::Window win;
+    sf::RenderWindow win;
     std::shared_ptr<neoskye::View> view;
 };
 

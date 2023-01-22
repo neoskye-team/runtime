@@ -9,9 +9,11 @@ add_library(neoskye
     src/Neoskye.cpp
     src/EngineOptions.cpp
     src/Entity.cpp
-    src/View.cpp 
+    src/View.cpp
+    src/content/ContentLoader.cpp
+    src/content/TextData.cpp
 )
-target_link_libraries(neoskye sfml-window sfml-audio)
+target_link_libraries(neoskye sfml-window sfml-graphics)
 target_include_directories(neoskye PUBLIC src)
 target_compile_options(neoskye PRIVATE "-Wall")
 target_compile_options(neoskye PRIVATE "-Wextra")

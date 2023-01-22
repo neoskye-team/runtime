@@ -15,7 +15,7 @@ template <typename T> inline T UnwrapOptional(const std::optional<T>& optional) 
 
 namespace neoskye {
 
-Neoskye::Neoskye(EngineOptions& opts) {
+Neoskye::Neoskye(const EngineOptions& opts) {
     auto width = UnwrapOptional(opts.GetUnsignedFlag("-width"));
     auto height = UnwrapOptional(opts.GetUnsignedFlag("-height"));
     auto title = UnwrapOptional(opts.GetStringFlag("title"));
@@ -35,13 +35,15 @@ u16 Neoskye::Run() {
             this->view->Update();
             this->view->Draw();
         }
+        this->win.clear();
+        this->win.display();
     }
 
     return 0;
 }
 
 // return true if the window should close
-bool Neoskye::HandleEvent(sf::Event& ev) {
+bool Neoskye::HandleEvent(const sf::Event& ev) {
     switch (ev.type) {
     case sf::Event::Closed:
         return true;

@@ -41,32 +41,29 @@ EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char*
     return opts;
 }
 
-std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string& key) {
+std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string& key) const {
     std::optional<usize> retVal;
     if (this->flags.count(key) == 0) {
         return retVal;
     }
-    usize thingy = std::stoul(this->flags[key]);
-    retVal = std::make_optional(thingy);
+    retVal = std::make_optional(std::stoul(this->flags.at(key)));
     return retVal;
 }
 
-std::optional<isize> EngineOptions::GetSignedFlag(const std::string& key) {
+std::optional<isize> EngineOptions::GetSignedFlag(const std::string& key) const {
     std::optional<usize> retVal;
     if (this->flags.count(key) == 0) {
         return retVal;
     }
-    isize thingy = std::stoi(this->flags[key]);
-    retVal = std::make_optional(thingy);
+    retVal = std::make_optional(std::stoi(this->flags.at(key)));
     return retVal;
 }
 
-std::optional<std::string> EngineOptions::GetStringFlag(const std::string& key) {
+std::optional<std::string> EngineOptions::GetStringFlag(const std::string& key) const {
     std::optional<std::string> retVal;
     if (this->flags.count(key) == 0)
         return retVal;
-    std::string thingy = this->flags[key];
-    retVal = std::make_optional(thingy);
+    retVal = std::make_optional(this->flags.at(key));
     return retVal;
 }
 
