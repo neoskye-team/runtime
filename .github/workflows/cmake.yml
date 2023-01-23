@@ -1,0 +1,28 @@
+name: CMake
+
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, ]
+        version: [10, 12, 14]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Build
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+
+    - name: Build
+      # Build your program with the given configuration
+      run: make
