@@ -16,6 +16,9 @@ add_library(neoskye
     src/content/ContentLoader.cpp
     src/content/TextData.cpp
     src/content/Sprite.cpp
+
+    # namespace neoskye::graphics
+    src/graphics/SpriteBatch.cpp
 )
 target_link_libraries(neoskye sfml-window sfml-graphics)
 target_include_directories(neoskye PUBLIC src)

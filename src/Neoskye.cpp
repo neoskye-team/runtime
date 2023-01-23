@@ -1,5 +1,6 @@
 #include "Neoskye.hpp"
 #include "EngineOptions.hpp"
+#include "SFML/Graphics/Sprite.hpp"
 #include "util/Types.hpp"
 #include <SFML/Window.hpp>
 #include <iostream>
@@ -7,7 +8,8 @@
 #include <optional>
 
 // i have lost my c++ template virginity
-template <typename T> inline T UnwrapOptional(const std::optional<T>& optional) {
+template <typename T>
+inline T UnwrapOptional(const std::optional<T>& optional) {
     if (optional.has_value())
         return optional.value();
     throw "Failed to unwrap optional!"; // todo: add an std::basic_stacktrace to this (c++23 feature)
@@ -22,6 +24,8 @@ Neoskye::Neoskye(const EngineOptions& opts) {
     this->win.create(sf::VideoMode(width, height), title);
 }
 
+void Neoskye::RegisterSpriteBatch(graphics::SpriteBatchPtr sprBtch) { this->spriteBatch = sprBtch; }
+
 u16 Neoskye::Run() {
     while (this->win.isOpen()) {
         sf::Event event;
@@ -35,8 +39,20 @@ u16 Neoskye::Run() {
             this->view->Update();
             this->view->Draw();
         }
-        this->win.clear();
-        this->win.display();
+        if (this->spriteBatch == nullptr) {
+            std::cerr << "spritebatch is null!" << std::endl;
+        } else {
+            const auto& drawData = this->spriteBatch->GetDrawData();
+            this->win.clear();
+            // kinda funny code
+            for (auto& draw : drawData) {
+                auto& sprite = draw.spr->GetData();
+                sprite.setPosition(draw.pos.x, draw.pos.y);
+                this->win.draw(sprite);
+            }
+            this->spriteBatch->Flush();
+            this->win.display();
+        }
     }
 
     return 0;

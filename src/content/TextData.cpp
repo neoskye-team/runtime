@@ -21,7 +21,7 @@ std::shared_ptr<TextData> TextData::LoadFromFile(const std::string& rootContentF
     fullPath = fullPath.append("/");
     fullPath = fullPath.append(path);
     fullPath = fullPath.append(".txt");
-    std::cout << "Loading TextData from " << fullPath << ": " << std::endl;
+    std::cout << "Loading TextData from " << fullPath << ": ";
     std::ifstream fs;
     std::stringstream ss;
     fs.open(fullPath);

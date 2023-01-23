@@ -11,12 +11,12 @@ class ContentLoader {
     ContentLoader(const std::string& contentRoot);
 
     template <typename C>
-    C LoadFromFile(const std::string& path) {
+    typename C::Pointer LoadFromFile(const std::string& path) {
         return C::LoadFromFile(this->contentRoot, path);
     }
 
     template <typename C>
-    C LoadFromMemory(const void* data, std::size_t size) {
+    typename C::Pointer LoadFromMemory(const void* data, std::size_t size) {
         return C::LoadFromMemory(data, size);
     }
 
