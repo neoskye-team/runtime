@@ -29,4 +29,6 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: make
+      run: |
+        cd build
+        make
