@@ -19,12 +19,12 @@ Vector2 Vector2::operator/(Vector2 const& other) { // if we're dividing by zero 
   return Vector2(this->x / other.x, this->y / other.y);
 }
   
-double Vector2::mag() {
+T Vector2::mag() {
   return sqrt(this->x*this->x + this->y*this->y);
 }
   
 void Vector2::normalize() {
-  double magnitude = this->mag();
+  T magnitude = this->mag();
   
   this->x = this->x / magnitude;
   this->y = this->y / magnitude;
