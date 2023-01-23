@@ -16,8 +16,8 @@ class ContentLoader {
     }
 
     template <typename C>
-    C LoadFromMemory(const std::string& data) {
-        return C::LoadFromMemory(data);
+    C LoadFromMemory(const void* data, std::size_t size) {
+        return C::LoadFromMemory(data, size);
     }
 
   private:
