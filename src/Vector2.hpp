@@ -2,20 +2,21 @@
 
 namespace neoskye {
 
+template <typename T>
 class Vector2 {
   public:
-    Vector2(double x, double y) {
+    Vector2(T x, T y) {
         this->x = x;
         this->y = y;
     }
-    double x;
-    double y;
+    T x;
+    T y;
   
     Vector2 operator+(Vector2 const& other);
     Vector2 operator-(Vector2 const& other);
     Vector2 operator*(Vector2 const& other);
     Vector2 operator/(Vector2 const& other);
-    double mag();
+    T mag();
     void normalize();
 };
 
