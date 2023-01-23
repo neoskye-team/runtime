@@ -1,5 +1,6 @@
 # Neoskye
-An opinionated, open-source, very cool game engine.
+An opinionated, open-source, very cool game engine.  
+We have a [Discord](https://discord.gg/mtrzeMez)!
 
 ## Building
 
