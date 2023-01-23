@@ -11,6 +11,13 @@ class Vector2 {
     }
     T x;
     T y;
+  
+    Vector2 operator+(Vector2 const& other);
+    Vector2 operator-(Vector2 const& other);
+    Vector2 operator*(Vector2 const& other);
+    Vector2 operator/(Vector2 const& other);
+    void mag();
+    void normalize();
 };
 
 } // namespace neoskye
