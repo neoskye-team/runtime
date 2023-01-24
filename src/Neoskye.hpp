@@ -10,14 +10,29 @@
 
 namespace neoskye {
 
+/// <summary>
+/// The engine, this trickles down to `View`'s
+/// </summary>
 class Neoskye {
   public:
+    /// <summary>
+    /// Creates an engine from EngineOptions
+    /// </summary>
     explicit Neoskye(const EngineOptions& opts);
+    /// <sumarry>
+    /// Runs the engine, and returns the engine's exist code
+    /// </summary>
     u16 Run();
-    bool HandleEvent(const sf::Event& ev);
+
+    /// <summary>
+    /// Sets the engine SpriteBatchPtr, its the users responsibility to create a spritebatch
+    /// </summary>
     void RegisterSpriteBatch(graphics::SpriteBatchPtr sprBtch);
 
     // implement here so template specialization works
+    /// <summary>
+    /// Switches to a new view. syntax: `SwitchView<YourView>()`
+    /// </summary>
     template <typename V>
     void SwitchView() {
         std::shared_ptr<View> view(new V());
@@ -25,6 +40,7 @@ class Neoskye {
     }
 
   private:
+    bool HandleEvent(const sf::Event& ev);
     sf::RenderWindow win;
     std::shared_ptr<View> view;
     graphics::SpriteBatchPtr spriteBatch;

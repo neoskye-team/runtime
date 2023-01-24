@@ -3,31 +3,39 @@
 
 namespace neoskye {
 
-Vector2 Vector2::operator+(Vector2 const& other) {
-  return Vector2(this->x + other.x, this->y + other.y);
+// TODO move all these to the header or a `.tcc` file
+
+template <typename T>
+Vector2<T> Vector2<T>::operator+(Vector2 const& other) {
+    return Vector2(this->x + other.x, this->y + other.y);
 }
 
-Vector2 Vector2::operator-(Vector2 const& other) {
-  return Vector2(this->x - other.x, this->y - other.y);
+template <typename T>
+Vector2<T> Vector2<T>::operator-(Vector2 const& other) {
+    return Vector2(this->x - other.x, this->y - other.y);
 }
-  
-Vector2 Vector2::operator*(Vector2 const& other) {
-  return Vector2(this->x * other.x, this->y * other.y);
+
+template <typename T>
+Vector2<T> Vector2<T>::operator*(Vector2 const& other) {
+    return Vector2(this->x * other.x, this->y * other.y);
 }
-  
-Vector2 Vector2::operator/(Vector2 const& other) { // if we're dividing by zero blame the user 😎
-  return Vector2(this->x / other.x, this->y / other.y);
+
+template <typename T>
+Vector2<T> Vector2<T>::operator/(Vector2 const& other) {
+    return Vector2(this->x / other.x, this->y / other.y); // if we're dividing by zero blame the user 😎
 }
-  
-T Vector2::mag() {
-  return sqrt(this->x*this->x + this->y*this->y);
+
+template <typename T>
+T Vector2<T>::Mag() {
+    return sqrt(this->x * this->x + this->y * this->y);
 }
-  
-void Vector2::normalize() {
-  T magnitude = this->mag();
-  
-  this->x = this->x / magnitude;
-  this->y = this->y / magnitude;
+
+template <typename T>
+void Vector2<T>::Normalize() {
+    T magnitude = this->mag();
+
+    this->x = this->x / magnitude;
+    this->y = this->y / magnitude;
 }
-  
+
 } // namespace neoskye

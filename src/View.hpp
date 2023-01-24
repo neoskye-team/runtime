@@ -7,6 +7,10 @@
 #include <tuple>
 
 namespace neoskye {
+
+/// <summary>
+/// A scene, this trickles down to `Entities`'s
+/// </summary>
 class View {
   public:
     /// <summary>
