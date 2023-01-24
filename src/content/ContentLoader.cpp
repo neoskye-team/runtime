@@ -1,4 +1,4 @@
-#include "content/CotentLoader.hpp"
+#include "content/ContentLoader.hpp"
 
 namespace neoskye::content {
 
