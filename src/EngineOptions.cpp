@@ -6,14 +6,21 @@
 #include "EngineOptions.hpp"
 
 // i stole this template its mine now
-template <class C, typename T> bool contains(C&& c, T e) {
+template <class C, typename T>
+bool contains(C&& c, T e) {
     return std::find(std::begin(c), std::end(c), e) != std::end(c);
 };
 
 namespace neoskye {
 
+/// <summary>
+/// Constructor, sets the default options
+/// </summary>
 EngineOptions::EngineOptions() {}
 
+/// <summary>
+/// Creates an `EngineOptions` from `argc` and `argv`
+/// </summary>
 EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char** argv) {
     EngineOptions opts;
     // i = 1 so we skip the first element which is "somefolder/TagsMod"
