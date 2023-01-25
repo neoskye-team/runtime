@@ -2,16 +2,17 @@
 
 namespace neoskye {
 
+// this needs some extra functionality added
 /// <summary>
 /// Describes a component, contains most of the logic that makes the engine run
 /// </summary>
 class Component {
   public:
-    Component();
+    Component() {}
 
     // TODO: pass the entity the component is mounted on here
-    virtual void Update();
-    virtual void Draw();
+    virtual void Update() {}
+    virtual void Draw() {}
 
   private:
     // ...
