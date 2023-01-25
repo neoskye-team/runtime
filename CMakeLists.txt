@@ -3,7 +3,11 @@ project(neoskye)
 
 set(CMAKE_CXX_STANDARD 17) # latest clang supported version
 
-add_subdirectory(lib) # build extendal libraries
+if(DEFINED ENV{NSFINDSFML})
+    find_package(SFML COMPONENTS system window graphics network audio REQUIRED)
+  else()
+    add_subdirectory(lib) # build extendal libraries
+endif()
 
 add_library(neoskye
 # namespace neoskye
