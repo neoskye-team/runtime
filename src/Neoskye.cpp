@@ -1,6 +1,7 @@
 #include "Neoskye.hpp"
 #include "EngineOptions.hpp"
 #include "SFML/Graphics/Sprite.hpp"
+#include "graphics/SpriteBatch.hpp"
 #include "util/Types.hpp"
 #include <SFML/Window.hpp>
 #include <iostream>
@@ -17,14 +18,12 @@ inline T UnwrapOptional(const std::optional<T>& optional) {
 
 namespace neoskye {
 
-Neoskye::Neoskye(const EngineOptions& opts) {
+Neoskye::Neoskye(const EngineOptions& opts, graphics::SpriteBatch& sprBtch) : spriteBatch(sprBtch) {
     auto width = UnwrapOptional(opts.GetUnsignedFlag("-width"));
     auto height = UnwrapOptional(opts.GetUnsignedFlag("-height"));
     auto title = UnwrapOptional(opts.GetStringFlag("title"));
     this->win.create(sf::VideoMode(width, height), title);
 }
-
-void Neoskye::RegisterSpriteBatch(graphics::SpriteBatchPtr sprBtch) { this->spriteBatch = sprBtch; }
 
 u16 Neoskye::Run() {
     while (this->win.isOpen()) {
@@ -39,20 +38,16 @@ u16 Neoskye::Run() {
             this->view->Update();
             this->view->Draw();
         }
-        if (this->spriteBatch == nullptr) {
-            std::cerr << "spritebatch is null!" << std::endl;
-        } else {
-            const auto& drawData = this->spriteBatch->GetDrawData();
-            this->win.clear();
-            // kinda funny code
-            for (auto& draw : drawData) {
-                auto& sprite = draw.spr->GetData();
-                sprite.setPosition(draw.pos.x, draw.pos.y);
-                this->win.draw(sprite);
-            }
-            this->spriteBatch->Flush();
-            this->win.display();
+        auto& drawData = this->spriteBatch.GetDrawData();
+        this->win.clear();
+        // kinda funny code
+        for (auto& draw : drawData) {
+            auto& sprite = draw.spr.GetData();
+            sprite.setPosition(draw.pos.x, draw.pos.y);
+            this->win.draw(sprite);
         }
+        this->spriteBatch.Flush();
+        this->win.display();
     }
 
     return 0;
