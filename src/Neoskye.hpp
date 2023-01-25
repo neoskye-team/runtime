@@ -18,16 +18,11 @@ class Neoskye {
     /// <summary>
     /// Creates an engine from EngineOptions
     /// </summary>
-    explicit Neoskye(const EngineOptions& opts);
+    explicit Neoskye(const EngineOptions& opts, graphics::SpriteBatch& sprBtch);
     /// <sumarry>
     /// Runs the engine, and returns the engine's exist code
     /// </summary>
     u16 Run();
-
-    /// <summary>
-    /// Sets the engine SpriteBatchPtr, its the users responsibility to create a spritebatch
-    /// </summary>
-    void RegisterSpriteBatch(graphics::SpriteBatchPtr sprBtch);
 
     // implement here so template specialization works
     /// <summary>
@@ -43,7 +38,7 @@ class Neoskye {
     bool HandleEvent(const sf::Event& ev);
     sf::RenderWindow win;
     std::shared_ptr<View> view;
-    graphics::SpriteBatchPtr spriteBatch;
+    graphics::SpriteBatch& spriteBatch;
 };
 
 } // namespace neoskye

@@ -8,8 +8,8 @@
 namespace neoskye::graphics {
 
 struct DrawData {
-    DrawData();
-    content::Sprite::Pointer spr;
+    DrawData(content::Sprite& spr, Vector2<usize> pos);
+    content::Sprite& spr;
     Vector2<usize> pos;
 };
 
@@ -26,11 +26,11 @@ class SpriteBatch {
     /// <summary>
     /// Submits a sprite for drawing
     /// </summary>
-    void Submit(content::Sprite::Pointer spr, Vector2<usize> pos);
+    void Submit(content::Sprite& spr, Vector2<usize> pos);
     /// <summary>
     /// Gets the draw data, is only used internally
     /// </summary>
-    const std::vector<DrawData>& GetDrawData() const;
+    std::vector<DrawData>& GetDrawData();
     /// <summary>
     /// Removes all the draw data
     /// </summary>
@@ -39,9 +39,5 @@ class SpriteBatch {
   private:
     std::vector<DrawData> queue;
 };
-
-typedef std::shared_ptr<SpriteBatch> SpriteBatchPtr;
-
-SpriteBatchPtr GetSpriteBatch();
 
 } // namespace neoskye::graphics
