@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cstdint>
-
 #define u8 std::uint8_t
 #define u16 std::uint16_t
 #define u32 std::uint32_t

@@ -5,7 +5,13 @@ namespace neoskye {
 
 Entity::Entity() {}
 
-void Entity::Update() {}
-void Entity::Draw() {}
+void Entity::Update() {
+    for (auto& component : this->components)
+        component.second.Update();
+}
+void Entity::Draw() {
+    for (auto& component : this->components)
+        component.second.Update();
+}
 
 } // namespace neoskye
