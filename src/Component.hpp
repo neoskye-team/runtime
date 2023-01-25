@@ -4,11 +4,7 @@ namespace neoskye {
 
 // this needs some extra functionality added
 /// <summary>
-/// Describes a component, contains most of the logic that makes the engine run
-/// </summary>
-class Component {
-  public:
-    Component() {}
+/// Describes a comp
 
     // TODO: pass the entity the component is mounted on here
     virtual void Update() {}
