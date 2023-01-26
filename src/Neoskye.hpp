@@ -6,7 +6,9 @@
 #include "util/Types.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <functional>
 #include <memory>
+#include <optional>
 
 namespace neoskye {
 
@@ -18,7 +20,7 @@ class Neoskye {
     /// <summary>
     /// Creates an engine from EngineOptions
     /// </summary>
-    explicit Neoskye(const EngineOptions& opts, graphics::SpriteBatch& sprBtch);
+    explicit Neoskye(const EngineOptions& opts);
     /// <sumarry>
     /// Runs the engine, and returns the engine's exist code
     /// </summary>
@@ -30,15 +32,17 @@ class Neoskye {
     /// </summary>
     template <typename V>
     void SwitchView() {
-        std::shared_ptr<View> view(new V());
+        V view;
         this->view = view;
     }
+
+    void RegisterSpriteBatch(neoskye::graphics::SpriteBatch& sb);
 
   private:
     bool HandleEvent(const sf::Event& ev);
     sf::RenderWindow win;
-    std::shared_ptr<View> view;
-    graphics::SpriteBatch& spriteBatch;
+    std::optional<View> view;
+    std::optional<std::reference_wrapper<graphics::SpriteBatch>> spriteBatch;
 };
 
 } // namespace neoskye

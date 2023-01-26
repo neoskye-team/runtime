@@ -10,8 +10,7 @@ namespace fs = std::filesystem;
 
 namespace neoskye::content {
 
-Sprite Sprite::LoadFromFile(const std::string& rootContentFolder, const std::string& path) {
-    Sprite spr;
+Sprite::Sprite(const std::string& rootContentFolder, const std::string& path) {
     std::string fullPath = fs::current_path();
     fullPath = fullPath.append("/");
     fullPath = fullPath.append(rootContentFolder);
@@ -19,27 +18,22 @@ Sprite Sprite::LoadFromFile(const std::string& rootContentFolder, const std::str
     fullPath = fullPath.append(path);
     fullPath = fullPath.append(".png");
     std::cout << "Loading Sprite from " << fullPath << ": ";
-    if (!spr.texture.loadFromFile(fullPath)) {
+    if (!this->texture.loadFromFile(fullPath)) {
         std::cout << "Failed!" << std::endl;
-        return spr; // this is the user's problem now
     } else {
         std::cout << "Success!" << std::endl;
     }
-    spr.spr.setTexture(spr.texture);
-    return spr;
+    this->spr.setTexture(this->texture);
 }
 
-Sprite Sprite::LoadFromMemory(const void* data, std::size_t size) {
-    Sprite spr;
+Sprite::Sprite(const void* data, std::size_t size) {
     std::cout << "Loading Sprite from memory: ";
-    if (!spr.texture.loadFromMemory(data, size)) {
+    if (!this->texture.loadFromMemory(data, size)) {
         std::cout << "Failed!" << std::endl;
-        return spr; // this is the user's problem now
     } else {
         std::cout << "Success!" << std::endl;
     }
-    spr.spr.setTexture(spr.texture);
-    return spr;
+    this->spr.setTexture(this->texture);
 }
 
 Sprite::Sprite() {}
