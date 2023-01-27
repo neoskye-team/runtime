@@ -25,4 +25,6 @@ void View::Draw() {
         entity.second->Draw();
 }
 
+View::~View() {}
+
 } // namespace neoskye

@@ -50,6 +50,8 @@ class View {
     /// </summary>
     virtual void Draw();
 
+    virtual ~View();
+
   private:
     std::map<std::tuple<std::string, std::string>, std::shared_ptr<Entity>> entities;
 };
