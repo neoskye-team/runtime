@@ -1,11 +1,12 @@
 name: CMake
 
 
+# We only merge into main if unstable checks ok, so its not worth it to run workflows on main
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "unstable" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "unstable" ]
 
 env:
   NSFINDSFML: 1
