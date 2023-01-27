@@ -8,7 +8,8 @@
 
 namespace fs = std::filesystem;
 
-namespace neoskye::content {
+namespace neoskye {
+namespace content {
 
 Sprite::Sprite(const std::string& rootContentFolder, const std::string& path) {
     std::string fullPath = fs::current_path();
@@ -40,4 +41,5 @@ Sprite::Sprite() {}
 
 sf::Sprite& Sprite::GetData() { return this->spr; }
 
-} // namespace neoskye::content
+} // namespace content
+} // namespace neoskye

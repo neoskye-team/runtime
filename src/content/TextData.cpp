@@ -8,7 +8,8 @@
 
 namespace fs = std::filesystem;
 
-namespace neoskye::content {
+namespace neoskye {
+namespace content {
 
 TextData::TextData() { this->data = ""; }
 
@@ -48,4 +49,5 @@ std::shared_ptr<TextData> TextData::LoadFromMemory(const void* data, std::size_t
 
 const std::string& TextData::ToString() const { return this->data; }
 
-} // namespace neoskye::content
+} // namespace content
+} // namespace neoskye

@@ -5,7 +5,8 @@
 #include "util/Types.hpp"
 #include <memory>
 
-namespace neoskye::graphics {
+namespace neoskye {
+namespace graphics {
 
 struct DrawData {
     DrawData(content::Sprite& spr, Vector2<usize> pos);
@@ -40,4 +41,5 @@ class SpriteBatch {
     std::vector<DrawData> queue;
 };
 
-} // namespace neoskye::graphics
+} // namespace graphics
+} // namespace neoskye

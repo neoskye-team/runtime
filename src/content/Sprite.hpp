@@ -5,7 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-namespace neoskye::content {
+namespace neoskye {
+namespace content {
 
 /// <summary>
 /// Describes a drawable sprite
@@ -37,4 +38,5 @@ class Sprite {
     sf::Sprite spr;
 };
 
-} // namespace neoskye::content
+} // namespace content
+} // namespace neoskye

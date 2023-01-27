@@ -3,7 +3,8 @@
 #include <memory>
 #include <string>
 
-namespace neoskye::content {
+namespace neoskye {
+namespace content {
 
 // TODO: compression so this isnt just a comptime wrapper for something useless
 /// <summary>
@@ -43,4 +44,5 @@ typedef std::shared_ptr<ContentLoader> ContentLoaderPtr;
 /// </summary>
 ContentLoaderPtr GetContentLoader(const std::string& contentRoot);
 
-} // namespace neoskye::content
+} // namespace content
+} // namespace neoskye

@@ -1,12 +1,9 @@
 #include "content/ContentLoader.hpp"
 
-namespace neoskye::content {
+namespace neoskye {
+namespace content {
 
 ContentLoader::ContentLoader(const std::string& rootPath) { this->contentRoot = rootPath; }
 
-ContentLoaderPtr GetContentLoader(const std::string& path) {
-    ContentLoaderPtr cl(new ContentLoader(path));
-    return cl;
-}
-
-} // namespace neoskye::content
+} // namespace content
+} // namespace neoskye

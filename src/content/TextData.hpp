@@ -3,7 +3,8 @@
 #include <memory>
 #include <string>
 
-namespace neoskye::content {
+namespace neoskye {
+namespace content {
 
 /// <summary>
 /// Loads a `.txt` file from the content folder
@@ -34,4 +35,5 @@ class TextData {
     std::string data;
 };
 
-} // namespace neoskye::content
+} // namespace content
+} // namespace neoskye
