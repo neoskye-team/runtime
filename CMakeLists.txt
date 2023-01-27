@@ -26,7 +26,9 @@ add_library(neoskye
 )
 target_link_libraries(neoskye sfml-window sfml-graphics)
 target_include_directories(neoskye PUBLIC src)
-target_compile_options(neoskye PRIVATE "-Wextra -pendantic -Wall")
+target_compile_options(neoskye PRIVATE "-Wall")
+target_compile_options(neoskye PRIVATE "-Wextra")
+target_compile_options(neoskye PRIVATE "-pedantic")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
     target_compile_options(neoskye PRIVATE -fsanitize=address,undefined)
