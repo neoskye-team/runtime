@@ -21,16 +21,18 @@ class ContentLoader {
     /// Loads from a file, template the content you want to load
     /// </summary>
     template <typename C>
-    C LoadFromFile(const std::string& path) {
-        return C(this->contentRoot, path);
+    typename C::Pointer LoadFromFile(const std::string& path) {
+        typename C::Pointer retPtr(new C(this->contentRoot, path));
+        return retPtr;
     }
 
     /// <summary>
     /// Loads from memory, template the content you want to load
     /// </summary>
     template <typename C>
-    C LoadFromMemory(const void* data, std::size_t size) {
-        return C(data, size);
+    typename C::Pointer LoadFromMemory(const void* data, std::size_t size) {
+        typename C::Pointer retPtr(new C(data, size));
+        return retPtr;
     }
 
   private:

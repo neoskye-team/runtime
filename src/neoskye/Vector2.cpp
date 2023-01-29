@@ -1,4 +1,4 @@
-#include "Vector2.hpp"
+#include "neoskye/Vector2.hpp"
 #include <cmath>
 
 namespace neoskye {

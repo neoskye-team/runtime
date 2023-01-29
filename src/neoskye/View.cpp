@@ -1,5 +1,5 @@
-#include "View.hpp"
-#include "Entity.hpp"
+#include "neoskye/View.hpp"
+#include "neoskye/Entity.hpp"
 #include <iostream>
 #include <memory>
 #include <tuple>

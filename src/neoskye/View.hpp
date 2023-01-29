@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Entity.hpp"
+#include "neoskye/Entity.hpp"
 #include <map>
 #include <memory>
 #include <string>
@@ -42,11 +42,11 @@ class View {
     E GetEntity(const std::string& name);
 
     /// <summary>
-    /// unimplemented virtual function, should never be called
+    /// Updates all entitites
     /// </summary>
     virtual void Update();
     /// <summary>
-    /// unimplemented virtual function, should never be called
+    /// Draw all entitites
     /// </summary>
     virtual void Draw();
 

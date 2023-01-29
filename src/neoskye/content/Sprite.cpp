@@ -1,10 +1,11 @@
-#include "content/Sprite.hpp"
+#include "neoskye/content/Sprite.hpp"
 #include "SFML/Graphics/Texture.hpp"
-#include "Sprite.hpp"
+#include "neoskye/content/Sprite.hpp"
 #include <cstddef>
 #include <filesystem>
 #include <iostream>
 #include <memory>
+#include <string>
 
 namespace fs = std::filesystem;
 

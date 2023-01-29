@@ -9,20 +9,22 @@ if(DEFINED ENV{NSFINDSFML})
     add_subdirectory(lib) # build external libraries
 endif()
 
+set(NEOSKYE_SOURCE_DIR src/neoskye)
+
 add_library(neoskye
 # namespace neoskye
-    src/Neoskye.cpp
-    src/EngineOptions.cpp
-    src/Entity.cpp
-    src/View.cpp
+    ${NEOSKYE_SOURCE_DIR}/Neoskye.cpp
+    ${NEOSKYE_SOURCE_DIR}/EngineOptions.cpp
+    ${NEOSKYE_SOURCE_DIR}/Entity.cpp
+    ${NEOSKYE_SOURCE_DIR}/View.cpp
 
     # namespace neoskye::content
-    src/content/ContentLoader.cpp
-    src/content/TextData.cpp
-    src/content/Sprite.cpp
+    ${NEOSKYE_SOURCE_DIR}/content/ContentLoader.cpp
+    ${NEOSKYE_SOURCE_DIR}/content/TextData.cpp
+    ${NEOSKYE_SOURCE_DIR}/content/Sprite.cpp
 
     # namespace neoskye::graphics
-    src/graphics/SpriteBatch.cpp
+    ${NEOSKYE_SOURCE_DIR}/graphics/SpriteBatch.cpp
 )
 target_link_libraries(neoskye sfml-window sfml-graphics)
 target_include_directories(neoskye PUBLIC src)

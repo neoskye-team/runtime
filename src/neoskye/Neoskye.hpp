@@ -1,9 +1,9 @@
 #pragma once
 
-#include "EngineOptions.hpp"
-#include "View.hpp"
-#include "graphics/SpriteBatch.hpp"
-#include "util/Types.hpp"
+#include "neoskye/EngineOptions.hpp"
+#include "neoskye/View.hpp"
+#include "neoskye/graphics/SpriteBatch.hpp"
+#include "neoskye/util/Types.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <functional>

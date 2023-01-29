@@ -1,16 +1,16 @@
 #pragma once
 
-#include "Vector2.hpp"
-#include "content/Sprite.hpp"
-#include "util/Types.hpp"
+#include "neoskye/Vector2.hpp"
+#include "neoskye/content/Sprite.hpp"
+#include "neoskye/util/Types.hpp"
 #include <memory>
 
 namespace neoskye {
 namespace graphics {
 
 struct DrawData {
-    DrawData(content::Sprite& spr, Vector2<usize> pos);
-    content::Sprite& spr;
+    DrawData(content::Sprite::Pointer& spr, Vector2<usize> pos);
+    content::Sprite::Pointer& spr;
     Vector2<usize> pos;
 };
 
@@ -27,7 +27,7 @@ class SpriteBatch {
     /// <summary>
     /// Submits a sprite for drawing
     /// </summary>
-    void Submit(content::Sprite& spr, Vector2<usize> pos);
+    void Submit(content::Sprite::Pointer& spr, Vector2<usize> pos);
     /// <summary>
     /// Gets the draw data, is only used internally
     /// </summary>

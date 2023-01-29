@@ -1,8 +1,8 @@
-#include "Neoskye.hpp"
-#include "EngineOptions.hpp"
+#include "neoskye/Neoskye.hpp"
 #include "SFML/Graphics/Sprite.hpp"
-#include "graphics/SpriteBatch.hpp"
-#include "util/Types.hpp"
+#include "neoskye/EngineOptions.hpp"
+#include "neoskye/graphics/SpriteBatch.hpp"
+#include "neoskye/util/Types.hpp"
 #include <SFML/Window.hpp>
 #include <iostream>
 #include <memory>
@@ -47,7 +47,7 @@ u16 Neoskye::Run() {
             this->win.clear();
             // kinda funny code
             for (auto& draw : drawData) {
-                auto& sprite = draw.spr.GetData();
+                auto& sprite = draw.spr->GetData();
                 sprite.setPosition(draw.pos.x, draw.pos.y);
                 this->win.draw(sprite);
             }

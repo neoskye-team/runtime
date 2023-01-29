@@ -2,6 +2,8 @@
 
 namespace neoskye {
 
+class Entity; // neoskye/Entity.hpp
+
 // this needs some extra functionality added
 /// <summary>
 /// Describes a component, contains most of the logic that makes the engine run
@@ -11,8 +13,8 @@ class Component {
     Component() {}
 
     // TODO: pass the entity the component is mounted on here
-    virtual void Update() {}
-    virtual void Draw() {}
+    virtual void Update(neoskye::Entity& ent) {}
+    virtual void Draw(neoskye::Entity& ent) {}
 
   private:
     // ...
