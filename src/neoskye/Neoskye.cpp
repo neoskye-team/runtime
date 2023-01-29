@@ -47,7 +47,7 @@ u16 Neoskye::Run() {
             this->win.clear();
             // kinda funny code
             for (auto& draw : drawData) {
-                auto& sprite = draw.spr.GetData();
+                auto& sprite = draw.spr->GetData();
                 sprite.setPosition(draw.pos.x, draw.pos.y);
                 this->win.draw(sprite);
             }

@@ -13,6 +13,8 @@ namespace content {
 /// </summary>
 class Sprite {
   public:
+    typedef std::shared_ptr<Sprite> Pointer;
+
     /// <summary>
     /// Loads from a file, you can call this, but it's preferred to use `neoskye::content::ContentLoader::LoadFromFile`
     /// </summary>
