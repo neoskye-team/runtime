@@ -1,4 +1,4 @@
-#include "Entity.hpp"
+#include "neoskye/Entity.hpp"
 #include <iostream>
 
 namespace neoskye {

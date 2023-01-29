@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Component.hpp"
+#include "neoskye/Component.hpp"
 #include <map>
 #include <memory>
 #include <string>

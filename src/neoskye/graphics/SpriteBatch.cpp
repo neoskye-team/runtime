@@ -1,6 +1,6 @@
-#include "graphics/SpriteBatch.hpp"
-#include "Vector2.hpp"
-#include "content/Sprite.hpp"
+#include "neoskye/graphics/SpriteBatch.hpp"
+#include "neoskye/Vector2.hpp"
+#include "neoskye/content/Sprite.hpp"
 #include <iostream>
 #include <vector>
 

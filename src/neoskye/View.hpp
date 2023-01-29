@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Entity.hpp"
+#include "neoskye/Entity.hpp"
 #include <map>
 #include <memory>
 #include <string>

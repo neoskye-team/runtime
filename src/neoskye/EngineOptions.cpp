@@ -3,7 +3,7 @@
 #include <optional>
 #include <string>
 
-#include "EngineOptions.hpp"
+#include "neoskye/EngineOptions.hpp"
 
 // i stole this template its mine now
 template <class C, typename T>
