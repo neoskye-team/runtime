@@ -1,8 +1,11 @@
 #pragma once
 
 #include "neoskye/Component.hpp"
+#include <functional>
+#include <iostream>
 #include <map>
 #include <memory>
+#include <optional>
 #include <string>
 #include <tuple>
 #include <typeinfo>
@@ -31,8 +34,11 @@ class Entity {
     /// </summary>
     template <typename C>
     void MountComponent() {
-        C component{};
-        this->components.insert({ typeid(C).name(), component });
+        if (this->components.count(typeid(C).name())) {
+            std::cerr << "Tried to mount a component that was already mounted!" << std::endl;
+        }
+        std::shared_ptr<C> ptr(new C());
+        this->components.insert({ typeid(C).name(), ptr });
     }
 
     template <typename C>
@@ -40,12 +46,19 @@ class Entity {
         this->components.erase(typeid(C).name());
     }
 
+    // this is kinda shit rn
     template <typename C>
-    C& GetComponent() {
-        return dynamic_cast<C&>(this->components[typeid(C).name()]);
+    std::optional<std::shared_ptr<C>> GetComponent() {
+        std::optional<std::shared_ptr<C>> retVal;
+        if (this->components.count(typeid(C).name()) == 0) {
+            return retVal;
+        }
+        auto balls = std::dynamic_pointer_cast<C>(this->components[typeid(C).name()]);
+        retVal = std::optional<std::shared_ptr<C>>(balls);
+        return retVal;
     }
 
   private:
-    std::map<std::string, Component> components;
+    std::map<std::string, std::shared_ptr<Component>> components;
 };
 } // namespace neoskye
