@@ -53,8 +53,11 @@ class EngineOptions {
     /// </summary>
     void DisableSwitch(const std::string& name);
 
+    std::string title;
+    bool useVSync;
+
   private:
-    // prefix with -[NAME] for user-configurable flag
+    // backing
     inline static const char* switchOpts[] = { "-fullscreen" };
     inline static const char* flagOpts[] = { "-width", "-height" };
     std::map<std::string, bool> switches;

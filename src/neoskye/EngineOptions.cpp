@@ -13,17 +13,15 @@ bool contains(C&& c, T e) {
 
 namespace neoskye {
 
-/// <summary>
-/// Constructor, sets the default options
-/// </summary>
-EngineOptions::EngineOptions() {}
+EngineOptions::EngineOptions() : title("Neoskye game") {
+    this->InsertFlag("-width", "1280");
+    this->InsertFlag("-height", "720");
+    this->useVSync = true;
+}
 
-/// <summary>
-/// Creates an `EngineOptions` from `argc` and `argv`
-/// </summary>
 EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char** argv) {
     EngineOptions opts;
-    // i = 1 so we skip the first element which is "somefolder/TagsMod"
+    // i = 1 so we skip the first element which is the exectuable name
     for (int i = 1; i < argc; i++) {
         const auto item = argv[i];
         bool isFlag = contains(flagOpts, item);

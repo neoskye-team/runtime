@@ -17,6 +17,7 @@ add_library(neoskye
     ${NEOSKYE_SOURCE_DIR}/EngineOptions.cpp
     ${NEOSKYE_SOURCE_DIR}/Entity.cpp
     ${NEOSKYE_SOURCE_DIR}/View.cpp
+    ${NEOSKYE_SOURCE_DIR}/Input.cpp
 
     # namespace neoskye::content
     ${NEOSKYE_SOURCE_DIR}/content/ContentLoader.cpp

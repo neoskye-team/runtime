@@ -21,8 +21,9 @@ namespace neoskye {
 Neoskye::Neoskye(const EngineOptions& opts) {
     auto width = UnwrapOptional(opts.GetUnsignedFlag("-width"));
     auto height = UnwrapOptional(opts.GetUnsignedFlag("-height"));
-    auto title = UnwrapOptional(opts.GetStringFlag("title"));
+    auto& title = opts.title;
     this->win.create(sf::VideoMode(width, height), title);
+    this->win.setVerticalSyncEnabled(opts.useVSync);
 }
 
 void Neoskye::RegisterSpriteBatch(neoskye::graphics::SpriteBatch& sb) { this->spriteBatch = sb; }

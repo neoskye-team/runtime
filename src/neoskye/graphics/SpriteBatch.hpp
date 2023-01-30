@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SFML/Graphics/Shape.hpp"
 #include "neoskye/Vector2.hpp"
 #include "neoskye/content/Sprite.hpp"
 #include "neoskye/util/Types.hpp"
@@ -8,10 +9,15 @@
 namespace neoskye {
 namespace graphics {
 
-struct DrawData {
-    DrawData(content::Sprite::Pointer& spr, Vector2<usize> pos);
+struct SpriteDrawData {
+    SpriteDrawData(content::Sprite::Pointer& spr, Vector2<usize> pos);
     content::Sprite::Pointer& spr;
     Vector2<usize> pos;
+};
+
+struct ShapeDrawData {
+    ShapeDrawData(sf::Shape& s);
+    sf::Shape& s;
 };
 
 /// <summary>
@@ -29,16 +35,21 @@ class SpriteBatch {
     /// </summary>
     void Submit(content::Sprite::Pointer& spr, Vector2<usize> pos);
     /// <summary>
+    /// Submits a rectangle for drawing
+    /// </summary>
+    void SubmitRect(Vector2<isize> pos, Vector2<usize> size);
+    /// <summary>
     /// Gets the draw data, is only used internally
     /// </summary>
-    std::vector<DrawData>& GetDrawData();
+    std::vector<SpriteDrawData>& GetDrawData();
     /// <summary>
     /// Removes all the draw data
     /// </summary>
     void Flush();
 
   private:
-    std::vector<DrawData> queue;
+    std::vector<SpriteDrawData> spriteQueue;
+    std::vector<ShapeDrawData> shapeQueue;
 };
 
 } // namespace graphics
