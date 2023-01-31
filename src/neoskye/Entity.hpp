@@ -12,7 +12,7 @@
 
 namespace neoskye {
 /// <summary>
-/// An entity, this trickles down to `Components`
+/// An entity, this trickles down to <see cref="neoskye::Component">Components</see>
 /// </summary>
 class Entity {
   public:
@@ -21,17 +21,21 @@ class Entity {
     /// </summary>
     Entity();
     /// <summary>
-    /// Updates this `Entity`s components
+    /// Updates this <see cref="neoskye::Entity">entity</see>'s components
     /// </summary>
     virtual void Update();
     /// <summary>
-    /// Updates this `Entity`s components
+    /// Updates this <see cref="neoskye::Entity">entity</see>'s components
     /// </summary>
     virtual void Draw();
 
     /// <summary>
     /// Adds a component to this entity
+    /// Syntax: <c>this->MountComponent<demogame::CMovement>();</c>
     /// </summary>
+    /// <remarks>
+    /// Template parameter C - the component
+    /// </remarks>
     template <typename C>
     void MountComponent() {
         if (this->components.count(typeid(C).name())) {
@@ -41,12 +45,27 @@ class Entity {
         this->components.insert({ typeid(C).name(), ptr });
     }
 
+    /// <summary>
+    /// Removes a component from this <see cref="neoskye::Entity">entity</see>
+    /// Syntax: <c>this->RemoveComponent<demogame::CMovement>();</c>
+    /// </summary>
+    /// <remarks>
+    /// Template parameter C - the component
+    /// </remarks>
     template <typename C>
     void RemoveComponent() {
         this->components.erase(typeid(C).name());
     }
 
-    // this is kinda shit rn
+    /// <summary>
+    /// Removes a component from this <see cref="neoskye::Entity">entity</see>
+    /// Syntax: <c>this->GetComponent<demogame::CMovement>();</c>
+    /// </summary>
+    /// <remarks>
+    /// Template parameter C - the component
+    /// </remarks>
+    /// <returns>A std::shared_ptr wrapped in a std::optional, the optional is empty if the component doesn't
+    /// exist</returns>
     template <typename C>
     std::optional<std::shared_ptr<C>> GetComponent() {
         std::optional<std::shared_ptr<C>> retVal;

@@ -17,18 +17,29 @@ class TextData {
     /// Creates an empty instance, use `neoskye::content::ContentLoader::LoadFromFile` instead
     /// </summary>
     TextData();
+
     /// <summary>
-    /// Loads from a file, you can call this, but it's preferred to use `neoskye::content::ContentLoader::LoadFromFile`
+    /// Loads from a file, you can call this, but it's preferred to use
+    /// <see cref="neoskye::content::ContentLoader::LoadFromFile">the contentloader</see>
     /// </summary>
+    /// <param name="rootContentFolder">The content folder relative to the folder of the executable</param>
+    /// <param name="path">The path to the content, without the <c>.txt</c></param>
+    /// <returns>A pointer to the content</returns>
     static Pointer LoadFromFile(const std::string& rootContentFolder, const std::string& path);
+
     /// <summary>
     /// Loads from memory, you can call this, but it's preferred to use
-    /// `neoskye::content::ContentLoader::LoadFromMemory`
+    /// <see cref="neoskye::content::ContentLoader::LoadFromMemory">the contentloader</see>
     /// </summary>
+    /// <param name="data">A void* to the data you want to load</param>
+    /// <param name="size">The size of the data you want to load</param>
+    /// <returns>A pointer to the content</returns>
     static Pointer LoadFromMemory(const void* data, std::size_t size);
+
     /// <summary>
-    /// Gives you a const reference to the inner string data
+    /// Gets the inner string data
     /// </summary>
+    /// <returns>A const& to the inner string data</returns>
     const std::string& ToString() const;
 
   private:

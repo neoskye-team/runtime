@@ -4,16 +4,24 @@ namespace neoskye {
 
 class Entity; // neoskye/Entity.hpp
 
-// this needs some extra functionality added
 /// <summary>
-/// Describes a component, contains most of the logic that makes the engine run
+/// Describes a component, contains most of the logic that makes the entity do stuff
 /// </summary>
 class Component {
   public:
+    /// <summary>
+    /// The base constructor of the component
+    /// </summary>
     Component() {}
 
-    // TODO: pass the entity the component is mounted on here
+    /// <summary>
+    /// Overridable function for the update logic in a component
+    /// </summary>
     virtual void Update(neoskye::Entity& ent) {}
+
+    /// <summary>
+    /// Overridable function for the graphics logic in a component
+    /// </summary>
     virtual void Draw(neoskye::Entity& ent) {}
 
   private:

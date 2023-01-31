@@ -26,22 +26,29 @@ struct ShapeDrawData {
 class SpriteBatch {
   public:
     /// <summary>
-    /// Creates a SpriteBatch, use `neoskye::content::GetSpriteBatch` instead
+    /// Creates a <see cref="neoskye::graphics::SpriteBatch">SpriteBatch</see>
     /// </summary>
     SpriteBatch();
-    // TODO: add more overloads
+
     /// <summary>
     /// Submits a sprite for drawing
     /// </summary>
+    /// <param name="spr">A pointer to the sprite you want to draw</param>
     void Submit(content::Sprite::Pointer& spr, Vector2<usize> pos);
+
     /// <summary>
     /// Submits a rectangle for drawing
     /// </summary>
+    /// <param name="pos">The position of the rectangle</param>
+    /// <param name="size">The size of the rectangle</param>
     void SubmitRect(Vector2<isize> pos, Vector2<usize> size);
+
     /// <summary>
     /// Gets the draw data, is only used internally
     /// </summary>
+    /// <returns>A reference to the vector of spritedrawdata</returns>
     std::vector<SpriteDrawData>& GetDrawData();
+
     /// <summary>
     /// Removes all the draw data
     /// </summary>

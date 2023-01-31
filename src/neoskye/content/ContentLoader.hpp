@@ -13,13 +13,15 @@ namespace content {
 class ContentLoader {
   public:
     /// <summary>
-    /// Creates a new contentloader, use `neoskye::content::GetContentLoader` instead
+    /// Creates a new contentloader
     /// </summary>
     ContentLoader(const std::string& contentRoot);
 
     /// <summary>
     /// Loads from a file, template the content you want to load
     /// </summary>
+    /// <param name="path">The path, relative to the content directory</param>
+    /// <returns>A pointer to the loaded </returns>
     template <typename C>
     typename C::Pointer LoadFromFile(const std::string& path) {
         typename C::Pointer retPtr(new C(this->contentRoot, path));
@@ -29,6 +31,8 @@ class ContentLoader {
     /// <summary>
     /// Loads from memory, template the content you want to load
     /// </summary>
+    /// <param name="path">The path, relative to the content directory</param>
+    /// <returns>A pointer to the loaded content</returns>
     template <typename C>
     typename C::Pointer LoadFromMemory(const void* data, std::size_t size) {
         typename C::Pointer retPtr(new C(data, size));
