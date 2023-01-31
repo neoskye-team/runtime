@@ -1,4 +1,9 @@
 # Neoskye
+![](https://img.shields.io/github/license/neoskye-team/engine?style=flat-square)
+![](https://img.shields.io/tokei/lines/github/neoskye-team/engine?style=flat-square)
+![](https://img.shields.io/github/actions/workflow/status/neoskye-team/engine/cmake.yml?style=flat-square)
+![](https://img.shields.io/badge/cool-yes-neoskye?style=flat-square)
+
 An opinionated, open-source, very cool game engine.  
 We have a [Discord](https://discord.gg/mtrzeMez)!
 
