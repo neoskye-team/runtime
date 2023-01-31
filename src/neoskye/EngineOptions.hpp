@@ -1,7 +1,6 @@
 #pragma once
 
-#include "neoskye/util/Types.hpp"
-
+#include "util/Types.hpp"
 #include <map>
 #include <optional>
 #include <string>

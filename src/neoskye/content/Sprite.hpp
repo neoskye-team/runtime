@@ -3,6 +3,7 @@
 #include "SFML/Graphics/Sprite.hpp"
 #include "SFML/Graphics/Texture.hpp"
 #include <SFML/Graphics.hpp>
+
 #include <memory>
 
 namespace neoskye {

@@ -9,7 +9,7 @@ on:
     branches: [ "unstable" ]
 
 env:
-  NSFINDSFML: 1
+  NEOSKYE_USE_SYSTEM_SFML: 1
 
 jobs:
   build:

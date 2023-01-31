@@ -101,20 +101,26 @@ ForEachMacros:
   - BOOST_FOREACH
 IfMacros:
   - KJ_IF_MAYBE
-IncludeBlocks:   Preserve
+IncludeBlocks:   Regroup
 IncludeCategories:
-  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
+  - Regex:           '^("|<)(neoskye)/'
     Priority:        2
     SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
+    CaseSensitive:   true
+  - Regex:           '^("|<)(nsphysics)/'
     Priority:        3
     SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '.*'
+    CaseSensitive:   true
+  - Regex:           '^("|<)(SFML)/'
     Priority:        1
     SortPriority:    0
+    CaseSensitive:   true
+  - Regex:           '.*'  # std headers
+    Priority:        4
+    SortPriority:    0
     CaseSensitive:   false
+
+
 IncludeIsMainRegex: '(Test)?$'
 IncludeIsMainSourceRegex: ''
 IndentAccessModifiers: false

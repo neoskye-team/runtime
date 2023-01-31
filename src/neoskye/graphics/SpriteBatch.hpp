@@ -1,9 +1,11 @@
 #pragma once
 
 #include "SFML/Graphics/Shape.hpp"
+
 #include "neoskye/Vector2.hpp"
 #include "neoskye/content/Sprite.hpp"
-#include "neoskye/util/Types.hpp"
+
+#include "util/Types.hpp"
 #include <memory>
 
 namespace neoskye {
