@@ -4,19 +4,13 @@
 
 namespace neoskye {
 
-bool Controller::connected(int controllerNumber) {
-    return sf::Joystick::isConnected(controllerNumber);
-}
+bool Controller::Connected(int controllerNumber) { return sf::Joystick::isConnected(controllerNumber); }
 
-void Controller::NameAxis(std::string axisName, sf::Joystick::Axis axis){
-    Controller::axisMap[axisName] = axis;
-};
+void Controller::NameAxis(std::string axisName, sf::Joystick::Axis axis) { Controller::axisMap[axisName] = axis; };
 
-void Controller::MapButton(std::string buttonName, int button){
-    Controller::buttonMap[buttonName].push_back(button);
-}
+void Controller::MapButton(std::string buttonName, int button) { Controller::buttonMap[buttonName].push_back(button); }
 
-bool Controller::buttonPressed(std::string buttonName){
+bool Controller::ButtonPressed(std::string buttonName) {
     bool pressed = false;
     for (const auto& key : Controller::buttonMap[buttonName]) {
         if (sf::Joystick::isButtonPressed(Controller::controllerNumber, key)) {
@@ -27,11 +21,11 @@ bool Controller::buttonPressed(std::string buttonName){
     return pressed;
 }
 
-float Controller::axisPosition(std::string axisName){
+float Controller::AxisPosition(std::string axisName) {
     return sf::Joystick::getAxisPosition(Controller::controllerNumber, Controller::axisMap[axisName]);
 }
 
-std::string Controller::getControllerName(){
+std::string Controller::GetControllerName() {
     return sf::Joystick::getIdentification(Controller::controllerNumber).name;
 }
 
