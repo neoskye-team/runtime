@@ -1,10 +1,10 @@
 name: CMake
 
 
-# We only merge into main if unstable checks ok, so its not worth it to run workflows on main
+# nvm lmao
 on:
   push:
-    branches: [ "unstable" ]
+    branches: [ "unstable", "main" ]
   pull_request:
     branches: [ "unstable" ]
 
