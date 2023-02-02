@@ -21,10 +21,10 @@ jobs:
         submodules: recursive
 
     - name: Update repositories
-      run: sudo apt-get install libsfml-dev
+      run: sudo apt update
     
     - name: Install SFML
-      run: sudo apt-get install libsfml-dev
+      run: sudo apt install libsfml-dev
     - name: Setup Cmake Build
       run: |
         mkdir build
