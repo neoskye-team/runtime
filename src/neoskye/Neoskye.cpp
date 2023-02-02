@@ -8,23 +8,16 @@
 #include "neoskye/graphics/SpriteBatch.hpp"
 
 #include "util/Types.hpp"
+#include <functional>
 #include <iostream>
 #include <memory>
 #include <optional>
 
-// i have lost my c++ template virginity
-template <typename T>
-inline T UnwrapOptional(const std::optional<T>& optional) {
-    if (optional.has_value())
-        return optional.value();
-    throw "Failed to unwrap optional!"; // todo: add an std::basic_stacktrace to this (c++23 feature)
-}
-
 namespace neoskye {
 
 Neoskye::Neoskye(const EngineOptions& opts) {
-    auto width = UnwrapOptional(opts.GetUnsignedFlag("-width"));
-    auto height = UnwrapOptional(opts.GetUnsignedFlag("-height"));
+    auto width = opts.GetUnsignedFlag("-width").value();
+    auto height = opts.GetUnsignedFlag("-height").value();
     auto& title = opts.title;
 
     this->win.create(sf::VideoMode(width, height), title);
@@ -34,6 +27,9 @@ Neoskye::Neoskye(const EngineOptions& opts) {
 void Neoskye::RegisterSpriteBatch(neoskye::graphics::SpriteBatch& sb) { this->spriteBatch = sb; }
 
 void Neoskye::RegisterContentLoader(neoskye::content::ContentLoader& cl) { this->contentLoader = cl; }
+
+std::optional<std::reference_wrapper<graphics::SpriteBatch>> Neoskye::spriteBatch;
+std::optional<std::reference_wrapper<content::ContentLoader>> Neoskye::contentLoader;
 
 // TODO: this is kinda messy and i dont like that
 u16 Neoskye::Run() {
