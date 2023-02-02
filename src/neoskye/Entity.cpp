@@ -9,6 +9,7 @@ void Entity::Update() {
     for (auto& component : this->components)
         component.second->Update(*this);
 }
+
 void Entity::Draw() {
     for (auto& component : this->components)
         component.second->Draw(*this);

@@ -13,17 +13,14 @@ bool contains(C&& c, T e) {
 
 namespace neoskye {
 
-/// <summary>
-/// Constructor, sets the default options
-/// </summary>
-EngineOptions::EngineOptions() {}
+EngineOptions::EngineOptions() : title("Neoskye game") {
+    this->InsertFlag("-width", "1280");
+    this->InsertFlag("-height", "720");
+    this->useVSync = true;
+}
 
-/// <summary>
-/// Creates an `EngineOptions` from `argc` and `argv`
-/// </summary>
-EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char** argv) {
-    EngineOptions opts;
-    // i = 1 so we skip the first element which is "somefolder/TagsMod"
+EngineOptions::EngineOptions(const int argc, const char** argv) {
+    // i = 1 so we skip the first element which is the exectuable name
     for (int i = 1; i < argc; i++) {
         const auto item = argv[i];
         bool isFlag = contains(flagOpts, item);
@@ -32,7 +29,7 @@ EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char*
             throw "Duplicate flag and switch!";
         if (isSwitch) {
             std::string flag(item);
-            opts.switches[flag] = true;
+            this->switches[flag] = true;
         }
         if (isFlag) {
             // can we look ahead one element?
@@ -41,11 +38,10 @@ EngineOptions EngineOptions::GenerateOptionsFromArgv(const int argc, const char*
                 throw "Out of range for flag";
             std::string _switch(item);
             std::string value(argv[i]);
-            opts.flags[_switch] = value;
+            this->flags[_switch] = value;
         }
         // otherwise silently continue
     }
-    return opts;
 }
 
 std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string& key) const {
