@@ -1,9 +1,10 @@
+#include "neoskye/EngineOptions.hpp"
+
 #include <algorithm>
+#include <iostream>
 #include <iterator>
 #include <optional>
 #include <string>
-
-#include "neoskye/EngineOptions.hpp"
 
 // i stole this template its mine now
 template <class C, typename T>
@@ -20,6 +21,9 @@ EngineOptions::EngineOptions() : title("Neoskye game") {
 }
 
 EngineOptions::EngineOptions(const int argc, const char** argv) {
+    this->InsertFlag("-width", "1280");
+    this->InsertFlag("-height", "720");
+    this->useVSync = true;
     // i = 1 so we skip the first element which is the exectuable name
     for (int i = 1; i < argc; i++) {
         const auto item = argv[i];
@@ -34,8 +38,9 @@ EngineOptions::EngineOptions(const int argc, const char** argv) {
         if (isFlag) {
             // can we look ahead one element?
             i++;
-            if (i > argc)
-                throw "Out of range for flag";
+            if (i > argc) {
+                std::cerr << "Failed to parse flag " << item << std::endl;
+            }
             std::string _switch(item);
             std::string value(argv[i]);
             this->flags[_switch] = value;
