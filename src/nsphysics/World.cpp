@@ -22,12 +22,14 @@ void World::Tick() {
         }
         obj.x += obj.speed;
         for (auto& force : obj.forces) {
-            // this is probably incorrect
-            isize x = force.length - std::cos(force.rotation);
-            isize y = force.length - std::sin(force.rotation);
+            // Calculate the horizontal and vertical change (i have never studied trigonometry)
+
+            // how much length to travel
+            auto length = force.length;
+            auto y = length * std::sin(force.rotation);
+            auto x = std::sqrt((y * y) + (length * length));
             obj.x += x;
             obj.y += y;
-            force.length -= obj.speed;
         }
     }
 }
