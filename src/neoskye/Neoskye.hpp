@@ -5,6 +5,7 @@
 
 #include "neoskye/EngineOptions.hpp"
 #include "neoskye/View.hpp"
+#include "neoskye/content/ContentLoader.hpp"
 #include "neoskye/graphics/SpriteBatch.hpp"
 
 #include "util/Types.hpp"
@@ -41,15 +42,23 @@ class Neoskye {
     }
 
     /// <summary>
-    /// Registers a mutuable reference to your <see cref="neoskye::SpriteBatch">spritebatch</see>
+    /// Registers a mutuable reference to your <see cref="neoskye::graphics::SpriteBatch">spritebatch</see>
     /// </summary>
     void RegisterSpriteBatch(neoskye::graphics::SpriteBatch& sb);
+
+    /// <summary>
+    /// Registers a mutuable reference to your <see cref="neoskye::content::ContentLoader">contentloader</see>
+    /// </summary>
+    void RegisterContentLoader(neoskye::content::ContentLoader& cl);
+
+    // this is kind of stinky poopy
+    static std::optional<std::reference_wrapper<graphics::SpriteBatch>> spriteBatch;
+    static std::optional<std::reference_wrapper<content::ContentLoader>> contentLoader;
 
   private:
     bool HandleEvent(const sf::Event& ev);
     sf::RenderWindow win;
     std::optional<View> view;
-    std::optional<std::reference_wrapper<graphics::SpriteBatch>> spriteBatch;
 };
 
 } // namespace neoskye

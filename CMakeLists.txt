@@ -15,7 +15,7 @@ add_subdirectory(src/nsphysics)
 # these must be relative to the root cmake so includes don't mess everything up
 add_library(__neoskye SHARED ${NEOSKYE_SOURCES})
 
-target_link_libraries(__neoskye PRIVATE sfml-window sfml-graphics)
+target_link_libraries(__neoskye sfml-window sfml-graphics)
 target_compile_options(__neoskye PRIVATE "-Wall")
 target_compile_options(__neoskye PRIVATE "-Wextra")
 target_compile_options(__neoskye PRIVATE "-pedantic")

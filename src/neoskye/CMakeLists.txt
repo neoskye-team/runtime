@@ -12,4 +12,7 @@ set(NEOSKYE_SOURCES
     ${NEOSKYE_SOURCE_DIR}/content/TextData.cpp 
     ${NEOSKYE_SOURCE_DIR}/content/Sprite.cpp
     ${NEOSKYE_SOURCE_DIR}/graphics/SpriteBatch.cpp
+    ${NEOSKYE_SOURCE_DIR}/components/rectrenderer.cpp
+    ${NEOSKYE_SOURCE_DIR}/components/spriterenderer.cpp
+    ${NEOSKYE_SOURCE_DIR}/components/spatial.cpp
 PARENT_SCOPE)
