@@ -4,6 +4,7 @@
 #include "SFML/Window.hpp"
 
 #include "neoskye/EngineOptions.hpp"
+#include "neoskye/content/ContentLoader.hpp"
 #include "neoskye/graphics/SpriteBatch.hpp"
 
 #include "util/Types.hpp"
@@ -31,6 +32,8 @@ Neoskye::Neoskye(const EngineOptions& opts) {
 }
 
 void Neoskye::RegisterSpriteBatch(neoskye::graphics::SpriteBatch& sb) { this->spriteBatch = sb; }
+
+void Neoskye::RegisterContentLoader(neoskye::content::ContentLoader& cl) { this->contentLoader = cl; }
 
 // TODO: this is kinda messy and i dont like that
 u16 Neoskye::Run() {
