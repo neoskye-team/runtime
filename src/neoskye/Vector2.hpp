@@ -61,6 +61,18 @@ class Vector2 {
     /// Normalize this vector
     /// </summary>
     void Normalize();
+    Vector2<T> Abs();
+    float Angle();
+    float Cross(const Vector2 b);
+    float Dot(const Vector2 with);
+    float AngleTo(const Vector2 to);
+    float AngleToPoint(const Vector2 to);
+    float Aspect();
+    Vector2<T> Inverse();
+    Vector2<T> Perpendicular();
+    float Length();
+    float LengthSquared();
+    Vector2<T> LinearInterpolate(const Vector2 to, float weight);
 };
 
 } // namespace neoskye
