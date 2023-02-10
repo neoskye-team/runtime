@@ -73,6 +73,8 @@ class Vector2 {
     float Length();
     float LengthSquared();
     Vector2<T> LinearInterpolate(const Vector2 to, float weight);
+    // mv is max value 🤯
+    Vector2<T> Random(float mv);
 };
 
 } // namespace neoskye
