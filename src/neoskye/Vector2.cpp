@@ -100,17 +100,17 @@ float Vector2<T>::LengthSquared() {
 
 template <typename T>
 Vector2<T> Vector2<T>::LinearInterpolate(const Vector2 to, float weight) {
-    float lerpedX = util::lerp(this->x, to.x, weight);
-    float lerpedY = util::lerp(this->y, to.y, weight);
+    T lerpedX = (T)util::lerp(this->x, to.x, weight);
+    T lerpedY = (T)util::lerp(this->y, to.y, weight);
     return Vector2(lerpedX, lerpedY);
 }
     
 template <typename T>
 Vector2<T> Vector2<T>::Random(float mv) {
     srand((unsigned int)time(NULL));
-    float x = (float(rand())/float((RAND_MAX)) * mv);
-    float y = (float(rand())/float((RAND_MAX)) * mv);
-    return Vector2(x, y);
+    float x = (float(rand()) / float(RAND_MAX) * mv);
+    float y = (float(rand()) / float(RAND_MAX) * mv);
+    return Vector2((T)x, (T)y);
 }
     
 } // namespace neoskye
