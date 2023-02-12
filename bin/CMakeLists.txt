@@ -1,9 +1,3 @@
-set(NEOSKYE_RUNNER_DIR bin)
-
-set(NEOSKYE_RUNNER_SOURCES
-
-PARENT_SCOPE)
-
 add_executable(neoskye_runner
     main.cpp
     Vector2.cpp
