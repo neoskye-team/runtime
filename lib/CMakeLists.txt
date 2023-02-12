@@ -1,4 +1,1 @@
-# SFML
-set(SFML_BUILD_DOC OFF CACHE BOOL "" FORCE)
-set(SFML_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(SFML)
+add_subdirectory(SDL2)

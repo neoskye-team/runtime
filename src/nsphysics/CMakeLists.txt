@@ -1,5 +1,0 @@
-set(NSPHYSICS_SOURCE_DIR src/nsphysics)
-
-set(NSPHYSICS_SOURCES
-    ${NSPHYSICS_SOURCE_DIR}/World.cpp
-PARENT_SCOPE)

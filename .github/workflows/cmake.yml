@@ -8,9 +8,6 @@ on:
   pull_request:
     branches: [ "unstable" ]
 
-env:
-  NEOSKYE_USE_SYSTEM_SFML: 1
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,17 +19,16 @@ jobs:
 
     - name: Update repositories
       run: sudo apt update
-    
-    - name: Install SFML
-      run: sudo apt install libsfml-dev
-    - name: Setup Cmake Build
+
+    - name: Setup CMake Build
       run: |
         mkdir build
         cd build
-        cmake ..
+        cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
 
     - name: Build
       # Build your program with the given configuration
       run: |
         cd build
         make
+

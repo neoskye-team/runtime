@@ -1,6 +1,6 @@
 #pragma once
 
-#include "util/Types.hpp"
+#include <cstdint>
 #include <map>
 #include <optional>
 #include <string>
@@ -22,21 +22,21 @@ class EngineOptions {
     /// </summary>
     /// <param name="argc">The argc you got from your <c>int main</c></param>
     /// <param name="argv">The argv you got from your <c>int main</c></param>
-    EngineOptions(const int argc, const char** argv);
+    EngineOptions(int argc, char** argv);
 
     /// <summary>
-    /// Gets a flag, and parses it into a `usize`
+    /// Gets a flag, and parses it into a `uintptr_t`
     /// </summary>
     /// <param name="key">The key of the parameter, e.g. <c>-width</c></param>
     /// <returns>A <c>std::optional</c> containing the usize, if the key was set.</returns>
-    std::optional<usize> GetUnsignedFlag(const std::string& key) const;
+    std::optional<uintptr_t> GetUnsignedFlag(const std::string& key) const;
 
     /// <summary>
-    /// Gets a flag, and parses it into a `isize`
+    /// Gets a flag, and parses it into a `intptr_t`
     /// </summary>
     /// <param name="key">The key of the parameter, e.g. <c>-width</c></param>
     /// <returns>A <c>std::optional</c> containing the isize, if the key was set.</returns>
-    std::optional<isize> GetSignedFlag(const std::string& key) const;
+    std::optional<intptr_t> GetSignedFlag(const std::string& key) const;
 
     /// <summary>
     /// Gets a flag

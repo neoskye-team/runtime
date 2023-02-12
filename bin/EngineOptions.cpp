@@ -1,10 +1,11 @@
-#include "neoskye/EngineOptions.hpp"
+#include "bin/EngineOptions.hpp"
 
 #include <algorithm>
 #include <iostream>
 #include <iterator>
 #include <optional>
 #include <string>
+#include <vadefs.h>
 
 // i stole this template its mine now
 template <class C, typename T>
@@ -20,7 +21,7 @@ EngineOptions::EngineOptions() : title("Neoskye game") {
     this->useVSync = true;
 }
 
-EngineOptions::EngineOptions(const int argc, const char** argv) {
+EngineOptions::EngineOptions(int argc, char** argv) {
     this->InsertFlag("-width", "1280");
     this->InsertFlag("-height", "720");
     this->useVSync = true;
@@ -49,8 +50,8 @@ EngineOptions::EngineOptions(const int argc, const char** argv) {
     }
 }
 
-std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string& key) const {
-    std::optional<usize> retVal;
+std::optional<uintptr_t> EngineOptions::GetUnsignedFlag(const std::string& key) const {
+    std::optional<uintptr_t> retVal;
     if (this->flags.count(key) == 0) {
         return retVal;
     }
@@ -58,8 +59,8 @@ std::optional<usize> EngineOptions::GetUnsignedFlag(const std::string& key) cons
     return retVal;
 }
 
-std::optional<isize> EngineOptions::GetSignedFlag(const std::string& key) const {
-    std::optional<usize> retVal;
+std::optional<intptr_t> EngineOptions::GetSignedFlag(const std::string& key) const {
+    std::optional<intptr_t> retVal;
     if (this->flags.count(key) == 0) {
         return retVal;
     }
