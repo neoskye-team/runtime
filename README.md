@@ -34,5 +34,5 @@ You'll need these libraries (+ their development headers) to build [SFML](https:
 
 ## Contributing
 
-Most of the work happens on the `unstable` branch, which gets merged into `main` every so often.
+Most of the work happens on the `unstable` branch, which gets merged into `stable` every so often.
 If you want to contribute, make your pull request on the `unstable` branch.
