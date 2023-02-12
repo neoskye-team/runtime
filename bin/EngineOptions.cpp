@@ -5,7 +5,6 @@
 #include <iterator>
 #include <optional>
 #include <string>
-#include <vadefs.h>
 
 // i stole this template its mine now
 template <class C, typename T>
