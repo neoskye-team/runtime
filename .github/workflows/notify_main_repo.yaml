@@ -17,6 +17,9 @@ jobs:
     defaults:
       run:
         shell: bash
+    
+    permissions:
+      actions: read/write
 
     steps:
     - name: Github REST API Call
